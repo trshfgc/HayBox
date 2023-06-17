@@ -67,16 +67,8 @@ void socd::twoIP(bool &input_dir1, bool &input_dir2, SocdState &socd_state) {
 }
 
 void socd::neutral(bool &input_dir1, bool &input_dir2) {
-    bool is_dir1 = false;
-    bool is_dir2 = false;
-    if (!input_dir1 && input_dir2) {
-        is_dir1 = false;
-        is_dir2 = true;
-    }
-    if (input_dir1 && !input_dir2) {
-        is_dir1 = true;
-        is_dir2 = false;
-    }
-    input_dir1 = is_dir1;
-    input_dir2 = is_dir2;
+    bool is_dir1 = input_dir1;
+    bool is_dir2 = input_dir2;
+    input_dir1 = is_dir1 && !is_dir2;
+    input_dir2 = !is_dir1 && is_dir2;
 }
