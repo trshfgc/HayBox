@@ -3,11 +3,11 @@
 
 #include "core/state.hpp"
 #include "modes/DefaultKeyboardMode.hpp"
-#include "modes/FgcMode.hpp"
 #include "modes/Melee20Button.hpp"
 #include "modes/ProjectM.hpp"
 #include "modes/RivalsOfAether.hpp"
 #include "modes/Ultimate.hpp"
+#include "modes/StreetFighter6Mode.hpp"
 
 extern KeyboardMode *current_kb_mode;
 
@@ -49,7 +49,7 @@ void select_mode(CommunicationBackend *backend) {
         } else if (inputs.down) {
             set_mode(backend, new Ultimate(socd::SOCD_2IP));
         } else if (inputs.right) {
-            set_mode(backend, new FgcMode(socd::SOCD_NEUTRAL));
+            set_mode(backend, new StreetFighter6Mode(socd::SOCD_NEUTRAL));
         } else if (inputs.b) {
             set_mode(backend, new RivalsOfAether(socd::SOCD_2IP));
         }
